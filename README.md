@@ -152,26 +152,19 @@ typedef struct
   анализаторами (санитайзерами). Санитайзеры могут дать подробную информацию о возможных и реальных ошибках в
   программе вместо классического сообщения о segmentation fault. Выбрать подходящую конфигурацию вы можете с
   помощью переменной `CMAKE_BUILD_TYPE`:
-
   - `ASan` &mdash; [AddressSanitizer](https://clang.llvm.org/docs/AddressSanitizer.html),
     набор проверок на некорректное использование адресов памяти. Примеры:
     use-after-free, double-free, выход за пределы стека, кучи или статического блока.
-
   - `LSan` &mdash; [LeakSanitizer](https://clang.llvm.org/docs/LeakSanitizer.html),
     проверки на утечки памяти.
-
   - `MSan` &mdash; [MemorySanitizer](https://clang.llvm.org/docs/MemorySanitizer.html),
     проверяет, что любая используемая ячейка памяти проинициализирована на момент чтения из нее.
-
   - `UBSan` &mdash; [UndefinedBehaviourSanitizer](https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html),
     набор базовых проверок на неопределенное поведение. Примеры: переполнение численного типа,
     null-pointer dereference.
-
 - Если в вашей системе имеется статический анализатор `clang-tidy`, он будет запущен во время компиляции программы.
   Список проверок описан в файле `clang-tidy-checks.txt`. Вы можете добавить свои проверки в конец этого файла.
-
 - Директория `tester` содержит код и изображения для тестирования вашей программы. Для запуска тестов используется CTest.
-
 - Поддержана интеграция системы сборки со средами разработки CLion, Visual Studio и Visual Studio Code.
 
 Чтобы система сборки работала на вашей системе, вам необходимо:
