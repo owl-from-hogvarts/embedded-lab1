@@ -2,3 +2,5 @@
 /out
 /obj
 *.html
+.cache/
+solution/compile_commands.json
