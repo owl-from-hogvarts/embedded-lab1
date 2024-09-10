@@ -3,6 +3,7 @@ clang-analyzer-*
 llvm-include-order
 misc-*
 performance-*
+-performance-no-int-to-ptr
 readability-redundant-*
 readability-simplify-*
 readability-const-*
