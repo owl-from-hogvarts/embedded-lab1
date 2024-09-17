@@ -134,7 +134,7 @@ bool load_segments(const int elf_fd, const Elf64_Ehdr * const header, const Elf6
 
     // Map memory according to program header.
     // fd and offset values are required by linux kernel documentation.
-    uint8_t * const segment_pointer = mmap((void *)aligned_segment_start,
+    uint8_t * const segment_pointer = mmap((void *)aligned_segment_start, // NOLINT
                                            actual_size,
                                            PROT_WRITE,
                                            MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED,
@@ -150,12 +150,12 @@ bool load_segments(const int elf_fd, const Elf64_Ehdr * const header, const Elf6
       // desired address
       read_at_absolute_offset(elf_fd,
                               (off_t)segment.p_offset,
-                              (void *)segment.p_vaddr,
+                              (void *)segment.p_vaddr, // NOLINT
                               segment.p_filesz);
     }
 
     const int segment_actual_permissions = build_segment_permissions(&segment);
-    if (mprotect((void *)aligned_segment_start,
+    if (mprotect((void *)aligned_segment_start, // NOLINT
                  actual_size,
                  segment_actual_permissions)) {
       PRINT_ERROR_AND_EXIT(MPROTECT_FAILED);
@@ -276,7 +276,7 @@ int main(int argc, char ** argv) {
 
   close(elf_file_fd);
 
-  void (*start)(void) = (void (*)(void))start_address;
+  void (*start)(void) = (void (*)(void))start_address; // NOLINT
 
   // if section was found, use it's address as a start address
   start();
