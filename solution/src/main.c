@@ -10,6 +10,10 @@
 #include <sys/user.h>
 #include <unistd.h>
 
+#ifndef SEEK_SET
+#define SEEK_SET 0
+#endif
+
 static const size_t FILE_PATH_ARGUMENT_INDEX = 1;
 static const size_t SECTION_NAME_ARGUMENT_INDEX = 2;
 static const size_t ARGUMENT_COUNT = 2;
